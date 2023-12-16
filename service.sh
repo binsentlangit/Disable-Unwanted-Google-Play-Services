@@ -1,9 +1,8 @@
-#!/sbin/sh
+#!/system/bin/sh
+clear
+# disable all service gms based Google Play Service
 
-# Sleep before the script executed (in seconds)
-sleep 55
-
-#Optimizing Code
+# optimize code
 a="su -c"
 b="pm disable com.google.android.gms/com.google.android.gms"
 c="pm disable com.google.android.gms/com.google.android.location"
@@ -27,12 +26,10 @@ t="droidguard"
 u="pay"
 v="thunderbird"
 
-#Advertising
+# Disable gms
 $a "$b.$e.$d.AdvertisingIdService"
 $a "$b.$e.$d.AdvertisingIdNotificationService"
 $a "$b.nearby.mediums.nearfieldcommunication.NfcAdvertisingService"
-
-#Analytic, Collecting Data & Stats Device
 $a "$b.$f.$d.AnalyticsService"
 $a "$b.$f.AnalyticsService"
 $a "$b.$f.AnalyticsTaskService"
@@ -47,11 +44,7 @@ $a "$b.$s.$p.StatsUploadService"
 $a "$b.checkin.CheckinApiService"
 $a "$b.checkin.CheckinService"
 $a "$b.$s.config.PhenotypeCheckinService"
-
-#AR
 $a "$c.internal.server.HardwareArProviderService"
-
-#Bug Report & Feedback
 $a "$b.presencemanager.$d.PresenceManagerPresenceReportService"
 $a "$c.reporting.$d.ReportingAndroidService"
 $a "$b.locationsharingreporter.$d.reporting.periodic.PeriodicReporterMonitoringService"
@@ -63,8 +56,6 @@ $a "$b.googlehelp.metrics.ReportBatchedMetricsGcmTaskService"
 $a "$c.reporting.$d.ReportingSyncService"
 $a "$b.usagereporting.$d.UsageReportingIntentService"
 $a "$b.feedback.FeedbackAsyncService"
-
-#Cast
 $a "$b.$h.$d.CastPersistentService_Persistent"
 $a "$b.$i.CastPersistentBoundBrokerService"
 $a "$b.$h.$k.CastMediaRoute2ProviderService"
@@ -79,21 +70,13 @@ $a "$b.$h.$k.CastRemoteDisplayProviderService_Persistent"
 $a "$b.$h.$d.CastSocketMultiplexerLifeCycleService"
 $a "$b.$h.$d.CastSocketMultiplexerLifeCycleService_Isolated"
 $a "$b.$h.$d.CastSocketMultiplexerLifeCycleService_Persistent"
-
-#Debug
 $a "$b.clearcut.debug.ClearcutDebugDumpService"
 $a "$b.$l.messages.debug.DebugPokeService"
-
-#Discovery Devices
 $a "$b.$l.discovery.$d.DiscoveryService"
 $a "pm disable com.google.android.gms/com.google.firebase.components.ComponentDiscoveryService"
 $a "pm disable com.google.android.gms/com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
-
-#Geolocation
 $a "$b.geotimezone.GeoTimeZoneService"
 $a "$b.location.geocode.GeocodeService"
-
-#Google Fitness
 $a "$b.$g.$d.ble.FitBleBroker"
 $a "$b.$g.$d.config.FitConfigBroker"
 $a "$b.$g.$d.goals.FitGoalsBroker"
@@ -107,8 +90,6 @@ $a "$b.$g.sync.FitnessSyncAdapterService"
 $a "$b.$g.sensors.sample.CollectSensorService"
 $a "$b.$g.cache.DataUpdateListenerCacheService"
 $a "$b.$g.sync.SyncGcmTaskService"
-
-#Google Pay & Wallet
 $a "$b.$q.globalactions.QuickAccessWalletService"
 $a "$b.$q.globalactions.WalletQuickAccessWalletService"
 $a "$b.wallet.$d.WalletGcmTaskService"
@@ -117,21 +98,15 @@ $a "$b.$u.hce.$d.PayHceService"
 $a "$b.$u.notifications.PayNotificationService"
 $a "$b.wallet.$d.PaymentService"
 $a "$b.$q.gcmtask.TapAndPayGcmTaskService"
-
-#Google play Games
 $a "$b.gp.gameservice.GameService"
 $a "$b.gp.gameservice.GameSessionService"
 $a "$b.$m.$i.GamesSignInIntentServiceProxy"
 $a "$b.$m.$i.GamesSyncServiceNotificationProxy"
 $a "$b.$m.$i.GamesUploadServiceProxy"
-
-#Instant Apps
 $a "$b.instantapps.$d.InstantAppsService"
 $a "$b.$i.GmsApiServiceNoInstantApps"
 $a "$b.$i.PersistentApiServiceNoInstantApps"
 $a "$b.$i.UiApiServiceNoInstantApps"
-
-#Location
 $a "$c.fused.FusedLocationService"
 $a "$b.location.persistent.LocationPersistentService"
 $a "$c.internal.server.GoogleLocationService"
@@ -145,21 +120,15 @@ $a "$c.$j.WearableLocationService"
 $a "$b.$g.sensors.sample.CollectSensorService"
 $a "$b.$g.cache.DataUpdateListenerCacheService"
 $a "$b.$g.sync.SyncGcmTaskService"
-
-#Logger
 $a "$b.$f.internal.PlayLogReportingService"
 $a "$b.romanesco.ContactsLoggerUploadService"
 $a "$b.magictether.logging.DailyMetricsLoggerService"
 $a "$b.checkin.EventLogService"
 $a "$b.backup.component.FullBackupJobLoggerService"
-
-#Nearby Devices
 $a "$b.$l.bootstrap.$d.NearbyBootstrapService"
 $a "$b.$l.connection.$d.NearbyConnectionsAndroidService"
 $a "pm disable com.google.android.gms/com.google.location.$l.direct.$d.NearbyDirectService"
 $a "$b.$l.messages.$d.NearbyMessagesService"
-
-#Google Play Protect & Security
 $a "$b.$t.DroidGuardService"
 $a "$b.$t.DroidGuardService_DroidGuardIsolated"
 $a "$b.$t.DroidGuardGcmTaskService"
@@ -171,23 +140,15 @@ $a "$b.$n.$o.SnetNormalTaskService"
 $a "$b.$n.$o.SnetService"
 $a "$b.$u.$n.storagekey.$d.StorageKeyCacheService"
 $a "$b.$q.$n.StorageKeyCacheService"
-
-#Safety & Emergency
 $a "$b.$v.EmergencyPersistentService"
 $a "$b.$v.EmergencyLocationService"
 $a "$b.personalsafety.$d.PersonalSafetyService"
 $a "$b.kids.$i.KidsServiceProxy"
-
-#Promotion
 $a "$b.enpromo.PromoInternalPersistentService"
 $a "$b.enpromo.PromoInternalService"
-
-#Trust agent
 $a "$b.auth.trustagent.GoogleTrustAgent"
 $a "$b.trustagent.api.bridge.TrustAgentBridgeService"
 $a "$b.trustagent.api.state.TrustAgentStateService"
-
-#Updater
 $a "$b.instantapps.routing.DomainFilterUpdateService"
 $a "$b.auth.folsom.$d.FolsomPublicKeyUpdateService"
 $a "$b.icing.proxy.IcingInternalCorporaUpdateService"
@@ -197,8 +158,6 @@ $a "$b.$r.SystemUpdateGcmTaskService"
 $a "$b.$r.SystemUpdateService"
 $a "$b.$r.UpdateFromSdCardService"
 $a "$b.fonts.$r.UpdateSchedulerService"
-
-#Wear OS
 $a "$b.dck.$d.DckWearableListenerService"
 $a "$b.$l.fastpair.$d.WearableDataListenerService"
 $a "$c.$j.WearableLocationService"
@@ -213,8 +172,6 @@ $a "$b.$g.$d.$j.WearableSyncConnectionService"
 $a "$b.$g.$d.$j.WearableSyncMessageService"
 $a "$b.$g.wearables.WearableSyncService"
 $a "$b.backup.wear.BackupSettingsListenerService"
-
-#Google Account Fix
 sleep 3
 su -c "pm enable com.google.android.gms/com.google.android.gms.chimera.PersistentIntentOperationService_AuthAccountIsolated"
 su -c "pm enable com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService_AuthAccountIsolated com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService_AuthAccountIsolate"
